@@ -33,4 +33,9 @@ func main() {
 
 	boilingF := CToF(BoilingC)
 	fmt.Printf("%g\n", boilingF-CToF(FreezingC))
+
+	c := FToC(212.0)
+	fmt.Println(c.String())
+	fmt.Printf("%v\n", c)
+	fmt.Printf("%s\n", c)
 }
