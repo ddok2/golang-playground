@@ -38,4 +38,7 @@ func main() {
 	fmt.Println(c.String())
 	fmt.Printf("%v\n", c)
 	fmt.Printf("%s\n", c)
+	fmt.Println(c)
+	fmt.Printf("%g\n", c)
+	fmt.Println(float64(c))
 }
