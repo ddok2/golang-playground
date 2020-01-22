@@ -40,6 +40,7 @@ func Test1() {
 
 	for _, s := range summer {
 		for _, q := range Q2 {
+
 			if s == q {
 				fmt.Printf("%s appears in both\n", s)
 			}
