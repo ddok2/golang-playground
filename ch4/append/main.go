@@ -1,0 +1,29 @@
+// Copyright 2020. SUNGYUB.COM. All Rights Reserved.
+//
+// - main.go
+// - author: Sungyub NA <mailto: darkerkorean@gmail.com>
+
+package main
+
+func main() {
+	// todo will do
+}
+
+func appendInt(x []int, y int) []int {
+	var z []int
+
+	zlen := len(x) + 1
+	if zlen <= cap(x) {
+		z = x[:zlen]
+	} else {
+		zcap := zlen
+		if zcap < 2*len(x) {
+			zcap = 2 * len(x)
+		}
+		z = make([]int, zlen, zcap)
+		copy(z, x)
+	}
+	z[len(x)] = y
+
+	return z
+}
