@@ -7,17 +7,17 @@ package hello
 
 import "testing"
 
-// func TestHello(t *testing.T) {
-// 	want := "Hello, world."
-//
-// 	if got := Hello(); got != want {
-// 		t.Errorf("Hello() = %q, want %q", got, want)
-// 	}
-// }
+func TestHello(t *testing.T) {
+	want := "Hello, world."
 
-func TestTest1(t *testing.T) {
-	Test1()
+	if got := Hello(); got != want {
+		t.Errorf("Hello() = %q, want %q", got, want)
+	}
 }
+
+// func TestTest1(t *testing.T) {
+// 	Test1()
+// }
 
 /**
  go test
