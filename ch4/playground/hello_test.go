@@ -15,9 +15,9 @@ func TestHello(t *testing.T) {
 	}
 }
 
-// func TestTest1(t *testing.T) {
-// 	Test1()
-// }
+func TestTest1(t *testing.T) {
+	Test1()
+}
 
 /**
  go test
