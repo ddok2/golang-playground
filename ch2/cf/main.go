@@ -7,9 +7,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/ddok2/golang-playground/ch2/tempconv"
 	"os"
 	"strconv"
+
+	"github.com/ddok2/golang-playground/ch2/tempconv"
 )
 
 func main() {
