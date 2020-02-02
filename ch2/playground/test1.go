@@ -10,12 +10,8 @@ import "fmt"
 func main() {
 	x := "안녕!"
 
-	for i := 0; i < len(x); i++ {
-		x := x[i]
-
-		if x != '!' {
-			x := x + 'A' - 'a'
-			fmt.Printf("%c", x) // ÌuhËeu
-		}
+	for _, x := range x {
+		x := x + 'A' - 'a'
+		fmt.Printf("%c", x) // 씨넵
 	}
 }
