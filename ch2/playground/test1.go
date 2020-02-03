@@ -8,10 +8,10 @@ package main
 import "fmt"
 
 func main() {
-	x := "안녕!"
+	x := "hello!"
 
 	for _, x := range x {
 		x := x + 'A' - 'a'
-		fmt.Printf("%c", x) // 씨넵
+		fmt.Printf("%c", x) // HELLO
 	}
 }
