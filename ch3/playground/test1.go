@@ -10,9 +10,8 @@ import "fmt"
 // 6.1 배열
 
 func main() {
-	var x []float64
-
-	x = make([]float64, 5, 10)
+	arr := []float64{1, 2, 3, 4, 5}
+	x := arr[0:2]
 
 	fmt.Println(x)
 }
