@@ -10,8 +10,8 @@ import "fmt"
 // 6.1 배열
 
 func main() {
-	arr := []float64{1, 2, 3, 4, 5}
-	x := arr[0:2]
+	slice1 := []int{1, 2, 3}
+	slice2 := append(slice1, 4, 5, 6, 7, 8, 9)
 
-	fmt.Println(x)
+	fmt.Println(slice1, slice2)
 }
