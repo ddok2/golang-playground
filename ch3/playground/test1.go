@@ -22,5 +22,5 @@ func main() {
 		total += v
 	}
 
-	fmt.Println(total / 5)
+	fmt.Println(total / float64(len(x)))
 }
