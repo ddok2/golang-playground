@@ -1,17 +1,12 @@
 // Copyright 2020. SUNGYUB.COM. All Rights Reserved.
 //
-// - main.go
+// - hello.go
 // - author: Sungyub NA <mailto: darkerkorean@gmail.com>
 
 package hello
 
-import "fmt"
+import "rsc.io/quote"
 
-func main() {
-	months := [...]string{
-		1: "Jan",
-		2: "Feb",
-	}
-
-	fmt.Println(len(months))
+func Hello() string {
+	return quote.Hello()
 }
