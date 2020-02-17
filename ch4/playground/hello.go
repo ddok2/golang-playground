@@ -34,9 +34,9 @@ func Test1() {
 	Q2 := months[4:7]
 	summer := months[6:9]
 
-	fmt.Println(Q2)
-	fmt.Println(summer)
-	fmt.Println(months)
+	fmt.Println("Q2:", Q2)
+	fmt.Println("summer:", summer)
+	fmt.Println("months:", months)
 
 	for _, s := range summer {
 		for _, q := range Q2 {
@@ -45,4 +45,7 @@ func Test1() {
 			}
 		}
 	}
+
+	endlessSummer := summer[:5]
+	fmt.Println(endlessSummer)
 }
