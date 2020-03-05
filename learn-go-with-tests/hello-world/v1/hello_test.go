@@ -9,21 +9,25 @@ import "testing"
 
 func TestHello(t *testing.T) {
 
-	t.Run("saying hello to people", func(t *testing.T) {
-		got := Hello("Sung")
-		want := "Hello, Sung"
+	assertCorrectMessage := func(t *testing.T, got, want string) {
+		t.Helper()
 
 		if got != want {
 			t.Errorf("got: %q \nwant: %q", got, want)
 		}
+	}
+
+	t.Run("saying hello to people", func(t *testing.T) {
+		got := Hello("Sung")
+		want := "Hello, Sung"
+
+		assertCorrectMessage(t, got, want)
 	})
 
 	t.Run("say 'Hello, World' when an empth string is supplied", func(t *testing.T) {
 		got := Hello("")
 		want := "Hello, World"
 
-		if got != want {
-			t.Errorf("got: %q \nwant: %q", got, want)
-		}
+		assertCorrectMessage(t, got, want)
 	})
 }
