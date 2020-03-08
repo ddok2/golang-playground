@@ -20,5 +20,6 @@ func TestAdder(t *testing.T) {
 }
 
 func ExampleAdder() {
-	fmt.Println(Add(4, 2))
+	sum := Add(1, 5)
+	fmt.Println(sum)
 }
