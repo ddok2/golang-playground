@@ -18,6 +18,7 @@ func frr() {
 	}
 
 	newStrs := make([]string, 0)
+
 	for i, str := range strs {
 		if str == "elmo" {
 			continue
