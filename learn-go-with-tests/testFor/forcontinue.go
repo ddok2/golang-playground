@@ -5,9 +5,7 @@
 
 package testFor
 
-import "fmt"
-
-func frr() {
+func frr() []string {
 	strs := []string{
 		"elmo",
 		"user1",
@@ -29,5 +27,5 @@ func frr() {
 		newStrs = append(newStrs, string(i)+str)
 	}
 
-	fmt.Println(newStrs)
+	return newStrs
 }
