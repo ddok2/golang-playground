@@ -17,14 +17,14 @@ func frr() []string {
 
 	newStrs := make([]string, 0)
 
-	for i, str := range strs {
+	for _, str := range strs {
 		if str == "elmo" {
 			continue
 		}
 		if str == "user1" {
 			continue
 		}
-		newStrs = append(newStrs, string(i)+str)
+		newStrs = append(newStrs, str)
 	}
 
 	return newStrs

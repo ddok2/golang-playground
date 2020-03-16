@@ -5,8 +5,26 @@
 
 package testFor
 
-import "testing"
+import (
+	"testing"
+)
 
 func Test_frr(t *testing.T) {
-	frr()
+	want := []string{
+		"user2",
+		"1",
+		"2",
+		"3",
+	}
+	got := frr()
+
+	for i, v := range got {
+
+		switch v {
+		case want[i]:
+			break
+		default:
+			t.Errorf("frr() = %v, want %v", v, want[i])
+		}
+	}
 }
