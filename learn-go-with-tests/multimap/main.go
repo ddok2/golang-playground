@@ -12,6 +12,15 @@ import (
 	"github.com/jwangsadinata/go-multimap/slicemultimap"
 )
 
+type Result struct {
+	UUID string `json:"uuid"`
+	Code string `json:"code"`
+}
+
+type ResultList struct {
+	Results []*Result `json:"results"`
+}
+
 func main() {
 	m := slicemultimap.New()
 
@@ -45,29 +54,112 @@ func main() {
 	results["e"] = nil
 	results["f"] = nil
 
-	type Result struct {
-		UUID string `json:"uuid"`
-		Code string `json:"code"`
-	}
-
-	type ResultList struct {
-		Results []*Result `json:"results"`
-	}
+	// val, found := results["z"]
+	// if found {
+	// 	fmt.Println("found key of z", val)
+	// } else {
+	// 	fmt.Println(results["z"])
+	// }
 
 	resultList := &ResultList{}
 
-	for k, v := range results {
-		r := &Result{}
-		r.UUID = k
-		if v == nil {
-			r.Code = "OK"
-		} else {
-			r.Code = "ERROR"
+	resultList.Results = append(resultList.Results, &Result{
+		UUID: "a",
+		Code: "1",
+	})
+	resultList.Results = append(resultList.Results, &Result{
+		UUID: "b",
+		Code: "2",
+	})
+
+	resultList.Results = append(resultList.Results, test1().Results...)
+
+	// for k, v := range results {
+	// 	r := &Result{}
+	// 	r.UUID = k
+	// 	if v == nil {
+	// 		r.Code = "OK"
+	// 	} else {
+	// 		r.Code = "ERROR"
+	// 	}
+	// 	resultList.Results = append(resultList.Results, r)
+	// }
+	//
+	// _json, _ := json.Marshal(resultList)
+	// fmt.Println(string(_json))
+	// fmt.Println(resultList)
+
+	t := test2([]string{"a", "b", "c"})
+	_json, _ := json.Marshal(t)
+	fmt.Println(string(_json))
+
+}
+
+func test1() *ResultList {
+	resultList := &ResultList{}
+	resultList.Results = append(resultList.Results, &Result{
+		UUID: "c",
+		Code: "1",
+	})
+	resultList.Results = append(resultList.Results, &Result{
+		UUID: "d",
+		Code: "2",
+	})
+
+	return resultList
+}
+
+func test2(str []string) *ResultList {
+	resultList := &ResultList{}
+
+	// str[0] = a
+	// str[1] = b
+	// str[2] = c
+
+	for i, v := range str {
+
+		switch v {
+		case "a":
+			fmt.Println("a")
+			r := &Result{
+				UUID: "a",
+				Code: "ok",
+			}
+
+			resultList.Results = append(resultList.Results, r)
+
+			if i == 0 {
+				r.Code = "err"
+				continue
+			}
+
+		case "b":
+			fmt.Println("b")
+			r := &Result{
+				UUID: "b",
+				Code: "ok",
+			}
+			resultList.Results = append(resultList.Results, r)
+			if i == 0 {
+				r.Code = "err"
+				continue
+			}
+
+		case "c":
+			fmt.Println("c")
+			r := &Result{
+				UUID: "c",
+				Code: "ok",
+			}
+			resultList.Results = append(resultList.Results, r)
+			if i == 0 {
+				r.Code = "err"
+				continue
+			}
+
 		}
-		resultList.Results = append(resultList.Results, r)
+
 	}
 
-	_json, _ := json.Marshal(resultList)
-	fmt.Println(string(_json))
-	fmt.Println(resultList)
+	return resultList
 }
