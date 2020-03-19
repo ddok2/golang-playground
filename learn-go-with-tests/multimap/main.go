@@ -8,6 +8,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"net/http"
 
 	"github.com/jwangsadinata/go-multimap/slicemultimap"
 )
@@ -93,6 +94,8 @@ func main() {
 	_json, _ := json.Marshal(t)
 	fmt.Println(string(_json))
 
+	fmt.Println(string(http.StatusInternalServerError))
+	fmt.Println(http.StatusText(http.StatusInternalServerError))
 }
 
 func test1() *ResultList {
