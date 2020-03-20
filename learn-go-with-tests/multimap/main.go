@@ -9,6 +9,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"strings"
 
 	"github.com/jwangsadinata/go-multimap/slicemultimap"
 )
@@ -91,6 +92,13 @@ func main() {
 	// fmt.Println(resultList)
 
 	t := test2([]string{"a", "b", "c"})
+
+	for _, v := range t.Results {
+		if strings.Contains(v.Code, "elmo") {
+			fmt.Println(v)
+		}
+	}
+
 	_json, _ := json.Marshal(t)
 	fmt.Println(string(_json))
 
@@ -140,7 +148,7 @@ func test2(str []string) *ResultList {
 			fmt.Println("b")
 			r := &Result{
 				UUID: "b",
-				Code: "ok",
+				Code: "elmo",
 			}
 			resultList.Results = append(resultList.Results, r)
 			if i == 0 {
@@ -152,7 +160,7 @@ func test2(str []string) *ResultList {
 			fmt.Println("c")
 			r := &Result{
 				UUID: "c",
-				Code: "ok",
+				Code: "something elmo whatever",
 			}
 			resultList.Results = append(resultList.Results, r)
 			if i == 0 {
