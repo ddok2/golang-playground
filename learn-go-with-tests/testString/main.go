@@ -13,7 +13,6 @@ import (
 func main() {
 
 	// elmoBalance := 0
-
 	output := "Incorrect Balance, should:9999990000, not:10000000000"
 
 	if strings.Contains(output, "Incorrect") {
