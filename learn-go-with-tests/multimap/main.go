@@ -26,10 +26,10 @@ type ResultList struct {
 func main() {
 	m := slicemultimap.New()
 
-	// m.Put("elmo", 1000)
-	// m.Put("elmo", 1010)
-	// m.Put("elmo", 1020)
-	// m.Put("elmo", 1030)
+	m.Put("elmo", 1000)
+	m.Put("elmo", 1010)
+	m.Put("elmo", 1020)
+	m.Put("elmo", 1030)
 
 	balances, found := m.Get("elmo")
 
