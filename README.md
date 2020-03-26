@@ -1,4 +1,4 @@
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/ddok2/golang-playground.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/ddok2/golang-playground/alerts/)
+[![Language grade: Go](https://img.shields.io/lgtm/grade/go/g/ddok2/golang-playground.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/ddok2/golang-playground/context:go)
 
 # Go lang playground
 
