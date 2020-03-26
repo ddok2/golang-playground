@@ -1,3 +1,5 @@
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/ddok2/golang-playground.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/ddok2/golang-playground/alerts/)
+
 # Go lang playground
 
 This repository is sample code from
