@@ -18,7 +18,6 @@ func main() {
 
 	batchMessageCount := 0
 	txBuffer := NewTxBuffer()
-	var ready chan bool
 
 	for {
 		if msg, err := messageQueue.GetMessage(); err != nil {
