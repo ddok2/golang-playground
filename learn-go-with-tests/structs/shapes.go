@@ -5,6 +5,8 @@
 
 package main
 
+import "math"
+
 func Perimeter(rectangle Rectangle) float64 {
 	return 2 * (rectangle.Width + rectangle.Height)
 }
@@ -23,5 +25,5 @@ type Circle struct {
 }
 
 func (c Circle) Area() float64 {
-	return 0
+	return math.Pi * c.Radius * c.Radius
 }
