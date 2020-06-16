@@ -22,11 +22,22 @@ type Job struct {
 
 func produce(jobs chan<- *Job) {
 	// Generate jobs:
-	id := 0
-	for c := 'a'; c <= 'z'; c++ {
-		id++
-		jobs <- &Job{Id: id, Work: fmt.Sprintf("%c", c)}
-	}
+	// id := 0
+	// for c := 'a'; c <= 'z'; c++ {
+	// 	id++
+	// 	jobs <- &Job{Id: id, Work: fmt.Sprintf("%c", c)}
+	// }
+
+	jobs <- &Job{Id: 0, Work: "a"}
+	jobs <- &Job{Id: 1, Work: "b"}
+	jobs <- &Job{Id: 2, Work: "c"}
+	jobs <- &Job{Id: 3, Work: "d"}
+	jobs <- &Job{Id: 4, Work: "e"}
+	jobs <- &Job{Id: 0, Work: "f"}
+	jobs <- &Job{Id: 3, Work: "g"}
+	jobs <- &Job{Id: 3, Work: "h"}
+	jobs <- &Job{Id: 4, Work: "i"}
+
 	close(jobs)
 }
 
@@ -44,7 +55,7 @@ func consume(id int, jobs <-chan *Job, results chan<- *Job) {
 func analyze(results <-chan *Job) {
 	defer wg2.Done()
 	for job := range results {
-		fmt.Printf("result: %s\n", job.Result)
+		fmt.Printf("result: %s - %d \n", job.Result, job.Id)
 	}
 }
 
