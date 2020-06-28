@@ -11,12 +11,12 @@ import (
 	"time"
 )
 
-var wg sync.WaitGroup
 var sharedLock sync.Mutex
 
 const runtime = 1 * time.Second
 
 func test1() {
+	var wg sync.WaitGroup
 	greedyWorker := func() {
 		defer wg.Done()
 
@@ -57,4 +57,8 @@ func test1() {
 	go politeWork()
 
 	wg.Wait()
+}
+
+func main() {
+	test1()
 }
