@@ -49,6 +49,27 @@ func test() {
 	tryRight := func(out *bytes.Buffer) bool {
 		return tryDir("right", &right, out)
 	}
+
+	walk := func(walking *sync.WaitGroup, name string) {
+		var out bytes.Buffer
+		defer func() { fmt.Println(out.String()) }()
+		defer walking.Done()
+
+		fmt.Fprintf(&out, "%v is trying to scoot:", name)
+		for i := 0; i < 5; i++ {
+			if tryLeft(&out) || tryRight(&out) {
+				return
+			}
+		}
+		fmt.Fprintf(&out, "\n%v tosses her hands up in exasperation!", name)
+	}
+
+	var pepleInHallway sync.WaitGroup
+	pepleInHallway.Add(2)
+	go walk(&pepleInHallway, "Alice")
+	go walk(&pepleInHallway, "Barbara")
+	pepleInHallway.Wait()
+
 }
 
 func main() {
