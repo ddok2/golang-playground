@@ -6,27 +6,17 @@
 package main
 
 import (
-	"fmt"
 	"testing"
 )
 
 func TestWallet(t *testing.T) {
 	wallet := Wallet{}
-	wallet.Deposit(10)
+	wallet.Deposit(Bitcoin(10))
 
 	got := wallet.Balance()
-	want := 10
-
-	fmt.Printf("address of balance in test is %v \n", &wallet.balance)
+	want := Bitcoin(10)
 
 	if got != want {
 		t.Errorf("got %d wnat %d", got, want)
 	}
 }
-
-/**
- go test
-address of balance in Deposit is 0xc0000a6070
-address of balance in test is 0xc0000a6070
-PASS
-*/
