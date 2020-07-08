@@ -11,10 +11,10 @@ import (
 
 func TestWallet(t *testing.T) {
 	wallet := Wallet{}
-	wallet.Deposit(Bitcoin(10))
+	wallet.Deposit(bitcoin(10))
 
 	got := wallet.Balance()
-	want := Bitcoin(10)
+	want := bitcoin(10)
 
 	if got != want {
 		t.Errorf("got %d wnat %d", got, want)

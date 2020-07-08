@@ -5,16 +5,16 @@
 
 package main
 
-type Bitcoin int
+type bitcoin int
 
 type Wallet struct {
-	balance Bitcoin
+	balance bitcoin
 }
 
-func (w *Wallet) Deposit(amount Bitcoin) {
+func (w *Wallet) Deposit(amount bitcoin) {
 	w.balance += amount
 }
 
-func (w *Wallet) Balance() Bitcoin {
+func (w *Wallet) Balance() bitcoin {
 	return w.balance
 }
