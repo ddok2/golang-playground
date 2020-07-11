@@ -5,34 +5,16 @@
 
 package main
 
-import (
-	"fmt"
-	"testing"
-)
+import "testing"
 
-// func TestWallet(t *testing.T) {
-// 	wallet := Wallet{}
-// 	wallet.Deposit(bitcoin(10))
-//
-// 	got := wallet.Balance()
-// 	want := bitcoin(10)
-//
-// 	if got != want {
-// 		t.Errorf("got %d wnat %d", got, want)
-// 	}
-// }
+func TestWallet(t *testing.T) {
+	wallet := Wallet{}
+	wallet.Deposit(bitcoin(10))
 
-func TestResult(t *testing.T) {
-	result := Result{UUID: "abc"}
-
-	got := result.Code
-	want := ""
+	got := wallet.Balance()
+	want := bitcoin(10)
 
 	if got != want {
-		t.Errorf("got %s wnat %s", got, want)
-	}
-	if got == want {
-		fmt.Printf("same - got %s want %s", got, want)
-		fmt.Println(result)
+		t.Errorf("got %d wnat %d", got, want)
 	}
 }
