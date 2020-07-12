@@ -18,12 +18,3 @@ func (w *Wallet) Deposit(amount bitcoin) {
 func (w *Wallet) Balance() bitcoin {
 	return w.balance
 }
-
-type Result struct {
-	UUID string `json:"uuid"`
-	Code string `json:"code"`
-}
-
-type ResultList struct {
-	Results []*Result `json:"results"`
-}
