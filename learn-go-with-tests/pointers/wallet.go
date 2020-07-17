@@ -18,3 +18,7 @@ func (w *Wallet) Deposit(amount bitcoin) {
 func (w *Wallet) Balance() bitcoin {
 	return w.balance
 }
+
+func (w *Wallet) Withdraw(amount bitcoin) {
+	w.balance -= amount
+}
