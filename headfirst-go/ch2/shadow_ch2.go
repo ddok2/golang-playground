@@ -5,12 +5,13 @@
 
 package main
 
-func main() {
-	var int int = 12
-	var append string = "minutes of bonus footage"
-	var fmt string = "DVD"
+import "fmt"
 
-	var count int
+func main() {
+	var count int = 12
+	var suffix string = "minutes of bonus footage"
+	var format string = "DVD"
 	var languages = append([]string{}, "Korean")
-	fmt.Println(int, append, "on", fmt, languages)
+
+	fmt.Println(count, suffix, "on", format, languages)
 }
