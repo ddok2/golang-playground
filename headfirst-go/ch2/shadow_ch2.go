@@ -8,9 +8,9 @@ package main
 import "fmt"
 
 func main() {
-	var count int = 12
-	var suffix string = "minutes of bonus footage"
-	var format string = "DVD"
+	var count = 12
+	var suffix = "minutes of bonus footage"
+	var format = "DVD"
 	var languages = append([]string{}, "Korean")
 
 	fmt.Println(count, suffix, "on", format, languages)
