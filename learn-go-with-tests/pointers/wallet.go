@@ -5,6 +5,8 @@
 
 package main
 
+import "errors"
+
 type bitcoin int
 
 type Wallet struct {
@@ -20,6 +22,9 @@ func (w *Wallet) Balance() bitcoin {
 }
 
 func (w *Wallet) Withdraw(amount bitcoin) error {
+	if amount > w.balance {
+		return errors.New("oh no..")
+	}
 	w.balance -= amount
 	return nil
 }

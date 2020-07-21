@@ -37,7 +37,7 @@ func TestWallet(t *testing.T) {
 		err := wallet.Withdraw(bitcoin(100))
 
 		assertBalance(t, wallet, startingBalance)
-		if err != nil {
+		if err == nil {
 			t.Error("wanted an error but didn't get one.")
 		}
 	})
