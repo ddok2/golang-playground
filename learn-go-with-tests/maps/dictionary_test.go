@@ -36,11 +36,3 @@ func assertStrings(t *testing.T, got, want string) {
 		t.Errorf("got %q want %q", got, want)
 	}
 }
-
-/**
- go test
-# _/Users/sung/Development/01.sung/golang-playground/learn-go-with-tests/maps [_/Users/sung/Development/01.sung/golang-playground/learn-go-with-tests/maps.test]
-./dictionary_test.go:14:10: assignment mismatch: 2 variables but dictionary.Search returns 1 values
-./dictionary_test.go:21:10: assignment mismatch: 2 variables but dictionary.Search returns 1 values
-FAIL    _/Users/sung/Development/01.sung/golang-playground/learn-go-with-tests/maps [build failed]
-*/
