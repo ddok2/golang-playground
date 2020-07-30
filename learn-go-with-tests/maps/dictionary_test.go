@@ -84,9 +84,10 @@ func assertStrings(t *testing.T, got, want string) {
 
 /*
  go test
-# _/Users/sung/Development/01.sung/golang-playground/learn-go-with-tests/maps [_/Users/sung/Development/01.sung/golang-playground/learn-go-with-tests/maps.test]
-./dictionary_test.go:35:24: dictionary.Add(word, definition) used as value
-./dictionary_test.go:45:24: dictionary.Add(word, "new test") used as value
-./dictionary_test.go:47:23: undefined: ErrWordExists
-FAIL    _/Users/sung/Development/01.sung/golang-playground/learn-go-with-tests/maps [build failed]
+--- FAIL: TestAdd (0.00s)
+    --- FAIL: TestAdd/existing_word (0.00s)
+        dictionary_test.go:47: got %!q(<nil>) want "cannot add word because it already exists"
+        dictionary_test.go:47: expected to get an error.
+FAIL
+exit status 1
 */
