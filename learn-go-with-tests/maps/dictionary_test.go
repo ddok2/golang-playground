@@ -81,13 +81,3 @@ func assertStrings(t *testing.T, got, want string) {
 		t.Errorf("got %q want %q", got, want)
 	}
 }
-
-/*
- go test
---- FAIL: TestAdd (0.00s)
-    --- FAIL: TestAdd/existing_word (0.00s)
-        dictionary_test.go:47: got %!q(<nil>) want "cannot add word because it already exists"
-        dictionary_test.go:47: expected to get an error.
-FAIL
-exit status 1
-*/
