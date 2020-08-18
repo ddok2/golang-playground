@@ -11,6 +11,7 @@ import (
 )
 
 func TestCountdown(t *testing.T) {
+
 	buffer := &bytes.Buffer{}
 	spySleeper := &SpySleeper{}
 
