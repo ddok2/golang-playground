@@ -9,7 +9,7 @@ import "testing"
 
 func TestRacer(t *testing.T) {
 	url1 := "https://www.facebook.com"
-	url2 := "https://www.sungyub.com"
+	url2 := "https://www.google.com"
 
 	want := url2
 	got := Racer(url1, url2)
