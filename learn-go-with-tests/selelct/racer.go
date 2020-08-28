@@ -7,7 +7,6 @@ package selelct
 
 import (
 	"net/http"
-	"time"
 )
 
 func Racer(a, b string) (winner string) {
@@ -27,10 +26,4 @@ func ping(url string) chan struct{} {
 	}()
 
 	return ch
-}
-
-func measureReponseTime(url string) time.Duration {
-	start := time.Now()
-	http.Get(url)
-	return time.Since(start)
 }
