@@ -25,6 +25,17 @@ func TestRacer(t *testing.T) {
 			t.Error("expected an error but didn't get one")
 		}
 	})
+
+	t.Run("returns an error if a server doesn't respond within 10s", func(t *testing.T) {
+		server := makeDelayedServer(25 * time.Millisecond)
+
+		defer server.Close()
+
+		_, err := ConfigurableRacer(server.URL, server.URL, 20*time.Millisecond)
+		if err == nil {
+			t.Error("expected an error but didn't get one")
+		}
+	})
 }
 
 func makeDelayedServer(delay time.Duration) *httptest.Server {
