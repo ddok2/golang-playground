@@ -18,10 +18,39 @@ func TestWalk(t *testing.T) {
 	}{
 		{
 			"Struct with one string field",
+			struct{ Name string }{"Sung"},
+			[]string{"Sung"},
+		},
+		{
+			"Struct with two string fields",
 			struct {
 				Name string
 				City string
 			}{"Sung", "Seoul"},
+			[]string{"Sung", "Seoul"},
+		},
+		{
+			"Struct with non string field",
+			struct {
+				Name string
+				Age  int
+			}{"Sung", 34},
+			[]string{"Sung"},
+		},
+		{
+			"Nested fields",
+			Person{
+				"Sung",
+				Profile{34, "Seoul"},
+			},
+			[]string{"Sung", "Seoul"},
+		},
+		{
+			"Pointers to things",
+			&Person{
+				"Sung",
+				Profile{34, "Seoul"},
+			},
 			[]string{"Sung", "Seoul"},
 		},
 	}
@@ -38,4 +67,14 @@ func TestWalk(t *testing.T) {
 			}
 		})
 	}
+}
+
+type Person struct {
+	Name    string
+	Profile Profile
+}
+
+type Profile struct {
+	Age  int
+	City string
 }
