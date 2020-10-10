@@ -15,3 +15,7 @@ func TestRomanNumerals(t *testing.T) {
 		t.Errorf("got %q, want %q", got, want)
 	}
 }
+
+func ConvertToRoman(arabic int) string {
+	return ""
+}
