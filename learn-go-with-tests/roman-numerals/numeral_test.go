@@ -33,8 +33,11 @@ func TestRomanNumerals(t *testing.T) {
 }
 
 func ConvertToRoman(arabic int) string {
-	var result strings.Builder
+	if arabic == 4 {
+		return "IV"
+	}
 
+	var result strings.Builder
 	for i := 0; i < arabic; i++ {
 		result.WriteString("I")
 	}
