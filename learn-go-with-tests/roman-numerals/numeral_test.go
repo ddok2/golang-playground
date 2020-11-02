@@ -5,7 +5,10 @@
 
 package roman_numerals
 
-import "testing"
+import (
+	"strings"
+	"testing"
+)
 
 func TestRomanNumerals(t *testing.T) {
 	cases := []struct {
@@ -16,6 +19,7 @@ func TestRomanNumerals(t *testing.T) {
 		{"1 gets converted to I", 1, "I"},
 		{"2 gets converted to II", 2, "II"},
 		{"3 gets converted to III", 3, "III"},
+		{"4 gets converted to IV (can't repeat more than 3 times)", 4, "IV"},
 	}
 
 	for _, test := range cases {
@@ -29,11 +33,14 @@ func TestRomanNumerals(t *testing.T) {
 }
 
 func ConvertToRoman(arabic int) string {
-	if arabic == 3 {
-		return "III"
+	if arabic == 4 {
+		return "IV"
 	}
-	if arabic == 2 {
-		return "II"
+
+	var result strings.Builder
+	for i := 0; i < arabic; i++ {
+		result.WriteString("I")
 	}
-	return "I"
+
+	return result.String()
 }
