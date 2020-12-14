@@ -11,6 +11,18 @@ import (
 	"testing"
 )
 
+func TestConvertingToArabic(t *testing.T) {
+	for _, test := range cases[:1] {
+		t.Run(fmt.Sprintf("%q gets converted to %d", test.Roman, test.Arabic),
+			func(t *testing.T) {
+				got := ConvertToArabic(test.Roman)
+				if got != test.Arabic {
+					t.Errorf("got %d, want %d", got, test.Arabic)
+				}
+			})
+	}
+}
+
 func TestRomanNumerals(t *testing.T) {
 	cases := []struct {
 		Arabic int
@@ -62,6 +74,12 @@ type RomanNumeral struct {
 }
 
 var RomanNumerals = []RomanNumeral{
+	{1000, "M"},
+	{900, "CM"},
+	{500, "D"},
+	{400, "CD"},
+	{100, "C"},
+	{90, "XC"},
 	{50, "L"},
 	{40, "XL"},
 	{10, "X"},
