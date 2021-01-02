@@ -5,7 +5,10 @@
 
 package sync
 
-import "testing"
+import (
+	"sync"
+	"testing"
+)
 
 func assertCounter(t testing.TB, got Counter, want int) {
 	t.Helper()
@@ -24,4 +27,22 @@ func TestCounter(t *testing.T) {
 
 			assertCounter(t, counter, 3)
 		})
+
+	t.Run("it runs safely concurrently", func(t *testing.T) {
+		wantedCount := 1000
+		counter := Counter{}
+
+		var wg sync.WaitGroup
+		wg.Add(wantedCount)
+
+		for i := 0; i < wantedCount; i++ {
+			go func(w *sync.WaitGroup) {
+				counter.Inc()
+				w.Done()
+			}(&wg)
+		}
+		wg.Wait()
+
+		assertCounter(t, counter, wantedCount)
+	})
 }
